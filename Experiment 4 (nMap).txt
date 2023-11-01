@@ -1,0 +1,42 @@
+Computer Network Scripts and Codes.
+
+
+		Exp 4
+
+INSTALLING NMAP
+apt-get install nmap
+
+ifconfig
+
+nmap -sn ${ip_address}  //This command scans a single IP address for open ports
+
+Nmap --version: This command displays the version of Nmap that is running. 
+
+Nmap --help: This command displays help information for the Nmap command line 
+interface.
+
+nmap -sP ${network range} //This command scans a range of IP addresses for active hosts. 
+
+Nmap -sV <ip_address>: This command scans a single IP address for open ports and their 
+associated services. 
+
+Nmap -sT <ip_address>: This command scans a single IP address for open ports using TCP 
+SYN packets. 
+
+Nmap -sU <ip_address>: This command scans a single IP address for open ports using UDP 
+packets. 
+
+Nmap -O <ip_address>: This command scans a single IP address for its operating system and other identifying information
+
+Nmap -A <ip_address>: This command scans a single IP address for open ports, operating 
+system, and other identifying information. 
+
+Nmap -p <port> <ip_address>: This command scans a single IP address for a specific port
+
+Nmap -p 1-1024 <ip_address>: This command scans a single IP address for all ports from 1 to 1024. 
+
+Nmap -p 80,443 <ip_address>: This command scans a single IP address for the HTTP (port 
+80) and HTTPS (port 443) ports.
+
+Nmap -v <ip_address>: This command prints out verbose output for a single IP address scan. 
+

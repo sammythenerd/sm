@@ -1,0 +1,16 @@
+Computer Network Scripts and Codes.
+
+
+		Exp 6
+
+ifconfig
+
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT 
+
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+

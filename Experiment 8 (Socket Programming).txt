@@ -1,0 +1,81 @@
+Computer Network Scripts and Codes.
+
+
+		Exp 8
+============================ Server Code ======================================
+import socket
+
+# Create a TCP socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Define the server's host and port
+host = '127.0.0.1'
+port = 9999
+
+#Bind the socket to the address and port
+server_socket.bind((host, port))
+
+# Listen for incoming connections
+server_socket.listen()
+print(f"Server is listening on {host}:{port}")
+
+# Accept incoming connections
+client_socket, client_address = server_socket.accept()
+print(f"Accepted connection from {client_address}")
+
+# Receive data from the client
+while True:
+    data = client_socket.recv(1024).decode()
+
+    if not data:
+        break
+
+    print(f"Received {data} from the client")
+
+    # Send data back to the client
+    response = f"Server Received: {data}"
+    client_socket.send(response.encode())
+
+# Close the client socket
+client_socket.close()
+server_socket.close()
+
+
+
+============================ Client Code ======================================
+
+
+import socket
+
+# Create a TCP socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Define the server's address and port
+server_address = ('127.0.0.1', 9999)
+
+# Connect to the server
+client_socket.connect(server_address)
+
+while True:
+    # Send data
+    message = input("Enter a message to send to the server (or 'quit' to exit): ")
+    
+    if message.lower() == 'quit':
+        break
+
+    client_socket.sendall(message.encode())
+
+    # Receive response
+    response = client_socket.recv(1024).decode()
+
+    print("Response from server: " + response)
+
+# Close the socket
+client_socket.close()
+
+
+
+
+
+
+
